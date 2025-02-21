@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            width: 270px;
+            text-align: center;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            overflow: hidden;
+            border: 3px solid #3498db;
+        }
+        .product:hover {
+            transform: scale(1.08);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            border-color: #e74c3c;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h2 {
+            font-size: 20px;
+            margin: 10px 0 5px;
+            color: #2c3e50;
+        }
+        .product p {
+            margin: 5px 0;
+            color: #555;
+            font-style: italic;
+        }
+        .price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 18px;
+        }
+        .buy-btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .buy-btn:hover {
+            background: #2ecc71;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Trendy Fashion Store</div>
+    <div class="container">
+        {% for p_i in pro_img %}
+        <div class="product">
+            <img src="{{ p_i.image.url }}" alt="{{ p_i.name }}">
+            <h2>{{ p_i.name }}</h2>
+            <p>Size: {{ p_i.size }}</p>
+            <p>Color: {{ p_i.colour }}</p>
+            <p class="price">Price: ${{ p_i.price }}</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
