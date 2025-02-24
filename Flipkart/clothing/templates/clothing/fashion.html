@@ -99,6 +99,8 @@
             <p>Color: {{ p_i.colour }}</p>
             <p class="price">Price: ${{ p_i.price }}</p>
             <button class="buy-btn">Buy Now</button>
+            <a href="{% url 'edit_product' p_i.id%}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'delete_product' p_i.id%}" class="btn btn-danger">Delete</a>
         </div>
         {% endfor %}
     </div>
